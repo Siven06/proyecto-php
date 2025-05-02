@@ -17,7 +17,7 @@
                                 </span>
                             </div>
             
-                            <input type="text" class="form-control" id="producto" name="registroNombre">
+                            <input type="text" class="form-control" id="producto" name="nombreProducto">
             
                         </div>
                         
@@ -59,7 +59,25 @@
                     </div>
             
            
-                
+                    <?php
+
+                     /*=============================================
+                      FORMA EN QUE SE INSTA­NCIA LA CLASE DE UN MÉTODO ESTÁTICO
+                        =============================================*/
+
+                     $inventario = ControladorInventario::ctrInventario();
+
+                     if ($inventario === 'ok') {
+                     // Aquí sí entra cuando el método devuelve "ok"
+                      echo '<script>
+                      if (window.history.replaceState) {
+                       window.history.replaceState(null, null, window.location.href);
+                       }
+                      </script>';
+                      echo '<div class="alert alert-success">El producto ha sido registrado</div>';
+                     }
+
+                     ?>
                     <button type="submit" class="btn btn-primary">Guardar</button>
             
                 </form>
